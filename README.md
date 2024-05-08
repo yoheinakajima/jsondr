@@ -2,10 +2,12 @@
 
 Welcome to JSONDR, your friendly tool to convert any webpage to JSON. Whether you need structured data for analysis or to collect links for your next web project, JSONDR has you covered.
 
+The tool can be used directly using the prefix **https://jsondr.com/** or you can download `jsondr.py` and use it in your code. It's essentially a BeatifulSoup wrapper, maybe switching to Playwright would be better for dynamic data. Check out (Jina's Reader tool)[https://jina.ai/reader/], which this project was inspired by (also that project is more stable, I just wanted JSON).
+
 ## Table of Contents
 - [Overview](#overview)
 - [Using JSONDR Directly](#using-jsondr-directly)
-- [Using jsondr.py](#using-jsondr-py)
+- [Using jsondr.py](#using-jsondrpy)
 - [Development and Contributions](#development-and-contributions)
 
 ## Overview
