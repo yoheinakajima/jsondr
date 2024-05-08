@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jsondr</title>
+        <style>
+            /* General page styles */
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+                padding: 20px;
+                background-color: #f4f4f4;
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+
+            /* Center the form and increase text size */
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                max-width: 400px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            input[type="text"] {
+                padding: 10px;
+                font-size: 18px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+
+            input[type="submit"] {
+                padding: 10px;
+                font-size: 20px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                box-sizing: border-box;
+            }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+            ul {
+              list-style-type: none;
+            }
+            li {
+              padding-bottom:5px;
+            }
+        </style>
+        <script>
+            // Validate and clean the URL input before redirecting
+            function submitForm(event) {
+                event.preventDefault();  // Prevent default form submission
+                var inputField = document.getElementById("urlInput");
+                var inputUrl = inputField.value.trim();
+
+                // Strip "http://" or "https://" if present
+                inputUrl = inputUrl.replace(/^(https?:\/\/)/, '');
+
+                // URL validation pattern to accept subdomains, paths, etc.
+                var urlPattern = /^([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(\/.*)?$/;
+                if (!urlPattern.test(inputUrl)) {
+                    alert("Please provide a valid URL");
+                    return;
+                }
+
+                // Redirect to the sanitized URL path
+                window.location.href = "/" + encodeURIComponent(inputUrl);
+            }
+        </script>
+    </head>
+    <body>
+        <p>the <b>jsondr</b> will see you now.</p>
+        <p style="margin-top:0px;text-color:#555;"><i><small>a url-to-json tool</small></i></p>
+        <form onsubmit="submitForm(event)">
+            <input type="text" id="urlInput" name="url" value="untapped.vc" />
+            <input type="submit" value="Try it" />
+        </form>
+        <div style="padding-top:100px;color:#555;text-align:left;">
+            <b>building with ai? check out these tools:</b>
+            <ul>
+                <li>add code interpreter to your app with <a href="https://e2b.dev/" target="_blank">e2b</a> sdk</li>
+                <li>building with media? check out <a href="https://videodb.io/" target="_blank">videodb</a>’s ai first media api</li>
+                <li>build realistic characters with an inner dialogue using <a href="https://www.opensouls.studio/" target="_blank">open souls</a></li>
+            </ul>
+            <b>need help with ai?</b>
+            <ul>
+                <li>just starting? check out <a href="https://obviously.ai/" target="_blank">obviouslyai</a>’s data-scientist-as-a-service</li>
+                <li>build videos easily with <a href="https://augxlabs.com/" target="_blank">augie</a>’s ai video creation tool</li>
+                <li></li>
+            </ul>
+            <span><i>brought to you by <a href="https://twitter.com/yoheinakajima" target="_blank">yoheinakajima</a> at untapped capital</i></span>
+        </div>
+    </body>
+</html>
